@@ -20,14 +20,14 @@
         <!--
         CSS
         ============================================= -->
-        <link rel="stylesheet" href="css/linearicons.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="css/nice-select.css">					
-        <link rel="stylesheet" href="css/animate.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/linearicons.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/magnific-popup.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/nice-select.css')}}">					
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/animate.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/owl.carousel.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='stylesheets/css/main.css')}}">
     </head>
     <body>
         {% block navbar %}
@@ -112,14 +112,14 @@
                 <div class="single-footer-widget mail-chimp">
                     <h6 class="mb-20">Instragram Feed</h6>
                     <ul class="instafeed d-flex flex-wrap">
-                        <li><img src="img/i1.jpg" alt=""></li>
-                        <li><img src="img/i2.jpg" alt=""></li>
-                        <li><img src="img/i3.jpg" alt=""></li>
-                        <li><img src="img/i4.jpg" alt=""></li>
-                        <li><img src="img/i5.jpg" alt=""></li>
-                        <li><img src="img/i6.jpg" alt=""></li>
-                        <li><img src="img/i7.jpg" alt=""></li>
-                        <li><img src="img/i8.jpg" alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i1.jpg')}}"  alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i2.jpg')}}" alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i3.jpg')}}" alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i4.jpg')}}" alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i5.jpg')}}" alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i6.jpg')}}" alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i7.jpg')}}" alt=""></li>
+                        <li><img src="{{ url_for('static',filename='img/i8.jpg')}}" alt=""></li>
                     </ul>
                 </div>
             </div>						
@@ -144,19 +144,19 @@
 </body>
 
 
-<script src="js/vendor/jquery-2.2.4.min.js"></script>
+<script src="{{ url_for('static',filename='js/vendor/jquery-2.2.4.min.js')}}" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="js/vendor/bootstrap.min.js"></script>			
+<script src="{{ url_for('static',filename='js/vendor/bootstrap.min.js')}}"> </script>			
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  <script src="js/easing.min.js"></script>			
-<script src="js/hoverIntent.js"></script>
-<script src="js/superfish.min.js"></script>	
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>	
-<script src="js/owl.carousel.min.js"></script>			
-<script src="js/jquery.sticky.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>			
-<script src="js/parallax.min.js"></script>		
-<script src="js/mail-script.js"></script>	
-<script src="js/main.js"></script>	
+  <script src="{{ url_for('static',filename='js/easing.min.js')}}"></script>			
+<script src="{{ url_for('static',filename='js/hoverIntent.js')}}"></script>
+<script src="{{ url_for('static',filename='js/superfish.min.js')}}"></script>	
+<script src="{{ url_for('static',filename='js/jquery.ajaxchimp.min.js')}}"></script>
+<script src="{{ url_for('static',filename='js/jquery.magnific-popup.min.js')}}"></script>	
+<script src="{{ url_for('static',filename='js/owl.carousel.min.js')}}"></script>			
+<script src="{{ url_for('static',filename='js/jquery.sticky.js')}}"></script>
+<script src="{{ url_for('static',filename='js/jquery.nice-select.min.js')}}"></script>			
+<script src="{{ url_for('static',filename='js/parallax.min.js')}}"></script>		
+<script src="{{ url_for('static',filename='js/mail-script.js')}}"></script>	
+<script src="{{ url_for('static',filename='js/main.js')}}"></script>	
 </html>
