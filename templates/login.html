@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<!-- start banner Area -->
+    <section class="banner-area relative" id="home">	
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        SignIn			
+                    </h1>	
+                    <p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="/login"> Sign in</a></p>
+
+
+        <div class="sigin">
+        <div id="fullscreen_bg" class="fullscreen_bg" >
+    
+    <div class="container">
+    
+        <form class="form-signin" method="POST" action="/login">
+            <input type="text" name="email" class="form-control" placeholder="Email address" required="" autofocus="" >
+            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+            <button class="ticker-btn" type="submit">
+                Sign In
+            </button>
+        </form>
+    
+    </div>
+    </div>
+    </div>
+                </div>											
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+
+{% endblock %}

@@ -1,45 +1,75 @@
-from flask import Flask,render_template          # import flask
+from flask import Flask,render_template,request,session          # import flask
+from dynoDb import dynoDb
 app = Flask(__name__)             # create an app instance
 
 @app.route("/")                   # at the end point /
-def hello():                      # call method hello
+def index():                      # call method hello
+    
     return render_template('index.html')         # which returns "hello world"
 
 @app.route("/about")
 def about():
     return render_template('about-us.html')
 
-@app.route("/blog-home")
-def blogHome():
-    return render_template('blog-home.html')
+@app.route("/index.html")
+def hello():
+    return render_template('index.html')
 
-@app.route("/blog-single")
-def blog():
-    return render_template('blog-single.html')
-
-@app.route("/category")
+@app.route("/category", methods=['GET'])
 def category():
-    return render_template('category.html')
+    if request.method == "GET":
+        a = request.args.get('category')
+        data = dynoDb().getJobs(a)
+    return render_template('category.html', data = data, category = a)
 
-@app.route("/contact")
-def contact():
-    return render_template('contact.html')
 
-@app.route("/elements")
-def element():
-    return render_template('elements.html')
-
-@app.route("/price")
-def price():
-    return render_template('price.html')
-
-@app.route("/search")
+@app.route("/search", methods=['GET', 'POST'])
 def search():
+    if request.method == "POST":
+        d = request.form['search'].split(" ")
+        newString = ""
+        for i in d:
+            newString += "\w*" + i + "\w*|"
+            if(newString.endswith("|")):
+                 newString = newString[:-1]
+        group = (dynoDb().findInfo(newString,request.form['category']))
+        print(group)
+        return render_template('search.html', group = group)
     return render_template('search.html')
+    
 
-@app.route("/single")
+@app.route("/single", methods=['GET', 'POST'])
 def single():
-    return render_template('single.html')
+    if request.method == 'GET':
+        a = request.args.get('pid')
+        data = dynoDb().getJobPid(a)
+    return render_template('single.html',data = data, cert = cert)
+
+
+@app.route("/login", methods=['POST', 'GET'])
+def login():
+    if request.method == "POST":
+        db = request.form
+        dynoDb().LogInUser(db)
+        session['loggedin'] = True
+        return render_template('index.html')
+    return render_template('login.html')
+
+
+@app.route("/signup", methods=['POST', 'GET'])
+def signup():
+    if request.method == "POST":
+        db = request.form
+        dynoDb().RegisterUser(db)
+        return render_template('index.html')
+    return render_template('signup.html')
+
+@app.route("/logout", methods=[ 'GET'])
+def logout():
+    session.pop('loggedin', None)
+    return render_template('index.html')
 
 if __name__ == "__main__":        # on running python app.py
-    app.run()                    # run the flask app
+    app.secret_key = "Bitch im a cow"
+
+    app.run(debug=False)                    # run the flask app
